@@ -345,6 +345,9 @@ func (bot *BotAPI) Send(c Chattable) (Message, error) {
 
 	var message Message
 	err = json.Unmarshal(resp.Result, &message)
+	if err != nil && string(resp.Result) == "true" {
+		return Message{}, nil
+	}
 
 	return message, err
 }
