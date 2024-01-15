@@ -599,12 +599,12 @@ func NewEditMessageCaption(chatID int64, messageID int, caption string) EditMess
 
 // NewEditMessageReplyMarkup allows you to edit the inline
 // keyboard markup.
-func NewEditMessageReplyMarkup(chatID int64, messageID int, replyMarkup InlineKeyboardMarkup) EditMessageReplyMarkupConfig {
+func NewEditMessageReplyMarkup(chatID int64, messageID int, replyMarkup *InlineKeyboardMarkup) EditMessageReplyMarkupConfig {
 	return EditMessageReplyMarkupConfig{
 		BaseEdit: BaseEdit{
 			ChatID:      chatID,
 			MessageID:   messageID,
-			ReplyMarkup: &replyMarkup,
+			ReplyMarkup: replyMarkup,
 		},
 	}
 }
